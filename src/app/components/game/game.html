@@ -1,0 +1,11 @@
+<div class="game">
+  <h2>Mode Bouillant 🔥</h2>
+
+  <button (click)="tirerCarte()">Tirer une carte</button>
+  @if (carte) {
+    <div>
+      <p>{{ carte.texte }}</p>
+      <small>{{ carte.type | uppercase }}</small>
+    </div>
+  }
+</div>
