@@ -1,6 +1,21 @@
-<div class="home">
-  <h1>🔥 Rouge Minuit 🔥</h1>
-  <p>Le jeu Action ou Vérité sensuel</p>
+<div class="home-container" [class.fade-out]="isFading">
+    <div class="overlay"></div>
 
-  <button routerLink="/game" class="btn">Commencer une partie</button>
+    <div class="content">
+        <h1 class="title">Rouge&nbsp;<span class="gold">Minuit</span></h1>
+        <p class="subtitle">Laisse la nuit révéler vos désirs...</p>
+
+        <div class="buttons">
+            <button class="btn duo" (click)="jouer('duo')">
+                <span>Jouer en duo</span>
+            </button>
+            <button class="btn groupe" (click)="jouer('groupe')">
+                <span>Jouer en groupe</span>
+            </button>
+        </div>
+    </div>
+
+    @if (isFading) {
+        <div class="fade-overlay {{ fadeColor }}"></div>
+    }
 </div>
