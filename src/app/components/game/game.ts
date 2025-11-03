@@ -1,11 +1,23 @@
 import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { CardsService } from '../../services/cards';
+import { Card } from '../../data/cards';
 
 @Component({
   selector: 'app-game',
-  imports: [],
+  standalone: true,
+  imports: [CommonModule],
   templateUrl: './game.html',
-  styleUrl: './game.scss',
+  styleUrl: './game.scss'
 })
-export class Game {
+export class GameComponent {
+  carte?: Card;
 
+  constructor(private cardsService: CardsService) {}
+
+  tirerCarte() {
+    console.log('Tirage d’une carte…');
+    this.carte = this.cardsService.getRandomByNiveau('bouillant');
+    console.log(this.carte);
+  }
 }
