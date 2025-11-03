@@ -1,0 +1,217 @@
+.home-container {
+  position: relative;
+  min-height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: radial-gradient(circle at 50% 40%, #220000, #000000 80%);
+  overflow: hidden;
+  color: #fff;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Halo doux et effet "fumée" */
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 30% 70%, rgba(255, 0, 60, 0.15), transparent 70%);
+  filter: blur(60px);
+  z-index: 1;
+  animation: breathe 6s ease-in-out infinite alternate;
+}
+
+@keyframes breathe {
+  from { opacity: 0.6; transform: scale(1); }
+  to { opacity: 0.9; transform: scale(1.1); }
+}
+
+.content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  padding: 2rem;
+}
+
+.title {
+  font-family: 'Playfair Display', serif;
+  font-size: 4rem;
+  font-weight: 600;
+  color: #ff1a4a;
+  text-shadow: 0 0 25px rgba(255, 0, 70, 0.6);
+  letter-spacing: 3px;
+  margin-bottom: 0.8rem;
+  animation: fadeIn 2s ease;
+}
+
+.subtitle {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.3rem;
+  opacity: 0.85;
+  margin-bottom: 3.5rem;
+  font-style: italic;
+  animation: fadeIn 3s ease 0.5s backwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(15px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.fade-overlay {
+  position: fixed;
+  inset: 0;
+  background: black;
+  opacity: 0;
+  animation: fadeToBlack 1s ease forwards;
+  z-index: 100;
+}
+
+/* version rouge passion pour duo */
+.fade-overlay.duo {
+  background: radial-gradient(circle at center, rgba(120, 0, 20, 0.7), #000);
+}
+
+/* version dorée pour groupe */
+.fade-overlay.groupe {
+  background: radial-gradient(circle at center, rgba(80, 50, 0, 0.8), #000);
+}
+
+@keyframes fadeToBlack {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+
+.buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  align-items: center;
+}
+
+/* Style général des boutons */
+.btn {
+  position: relative;
+  display: inline-block;
+  padding: 1rem 2.5rem;
+  border: none;
+  border-radius: 3rem;
+  font-weight: 600;
+  font-size: 1.1rem;
+  cursor: pointer;
+  letter-spacing: 0.5px;
+  color: #fff;
+  background-size: 200% auto;
+  box-shadow: 0 0 25px rgba(255, 80, 120, 0.3);
+  transition: all 0.5s ease;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+  overflow: hidden;
+
+  &:hover {
+    transform: translateY(-3px) scale(1.03);
+  }
+
+  &:active {
+    transform: scale(0.97);
+  }
+
+  span {
+    position: relative;
+    z-index: 2;
+  }
+
+  /* reflet lumineux */
+  &::before {
+    content: "";
+    position: absolute;
+    top: -50%;
+    left: -60%;
+    width: 220%;
+    height: 200%;
+    background: radial-gradient(circle at 50% 0%, rgba(255,255,255,0.2), transparent 70%);
+    transform: rotate(25deg);
+    opacity: 0;
+    transition: opacity 0.6s ease, transform 0.8s ease;
+  }
+
+  &:hover::before {
+    opacity: 1;
+    transform: rotate(25deg) translateY(15%);
+  }
+}
+
+/* ✨ DUO — Rose passion, qui vire rouge profond au survol */
+.btn.duo {
+  background: linear-gradient(135deg, #ff5a75 0%, #ff1f5e 50%, #ff5a75 100%);
+  box-shadow: 0 0 25px rgba(255, 80, 120, 0.3);
+  animation: pulseDuo 4s ease-in-out infinite alternate;
+
+  &:hover {
+    background: linear-gradient(135deg, #ff003d 0%, #ff527a 50%, #ff003d 100%);
+    box-shadow: 0 0 45px rgba(255, 0, 60, 0.6);
+  }
+}
+
+/* 🔥 GROUPE — Orange brûlant, qui devient doré incandescent au survol */
+.btn.groupe {
+  background: linear-gradient(135deg, #ff7b00 0%, #ff4500 50%, #ff7b00 100%);
+  box-shadow: 0 0 25px rgba(255, 120, 50, 0.3);
+  animation: pulseGroupe 4s ease-in-out infinite alternate;
+
+  &:hover {
+    background: linear-gradient(135deg, #ffb347 0%, #ffd56b 50%, #ffb347 100%);
+    box-shadow: 0 0 45px rgba(255, 210, 120, 0.6);
+  }
+}
+
+/* ✨ Pulsations sensuelles */
+@keyframes pulseDuo {
+  from {
+    box-shadow: 0 0 25px rgba(255, 90, 120, 0.3);
+  }
+  to {
+    box-shadow: 0 0 40px rgba(255, 90, 120, 0.6);
+  }
+}
+
+@keyframes pulseGroupe {
+  from {
+    box-shadow: 0 0 25px rgba(255, 120, 50, 0.3);
+  }
+  to {
+    box-shadow: 0 0 40px rgba(255, 120, 50, 0.6);
+  }
+}
+
+.gold {
+  position: relative;
+  display: inline-block;
+  background: linear-gradient(
+      120deg,
+      #d4af37 0%,
+      #f8e29c 30%,
+      #fff8d2 45%,
+      #d4af37 60%,
+      #bfa14a 100%
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 0 12px rgba(255, 215, 0, 0.25);
+  animation: goldShine 6s ease-in-out infinite alternate;
+}
+
+/* Animation subtile d’un reflet doré mouvant */
+@keyframes goldShine {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 100% 50%;
+  }
+}
