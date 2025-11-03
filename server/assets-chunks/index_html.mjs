@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en" data-beasties-container><head><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+export default `<!DOCTYPE html><html lang="en" data-beasties-container><head><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <meta charset="utf-8">
   <title>RougeMinuit</title>
   <base href="/rouge_minuit/">
@@ -12,4 +12,4 @@
   <app-root ng-version="20.3.9" ngh="1" ng-server-context="ssg"><router-outlet></router-outlet><app-home _nghost-ng-c10465679 ngh="0"><div _ngcontent-ng-c10465679 class="home-container"><div _ngcontent-ng-c10465679 class="overlay"></div><div _ngcontent-ng-c10465679 class="content"><h1 _ngcontent-ng-c10465679 class="title">Rouge&nbsp;<span _ngcontent-ng-c10465679 class="gold">Minuit</span></h1><p _ngcontent-ng-c10465679 class="subtitle">Laisse la nuit révéler vos désirs...</p><div _ngcontent-ng-c10465679 class="buttons"><button _ngcontent-ng-c10465679 class="btn duo" jsaction="click:;"><span _ngcontent-ng-c10465679>Jouer en duo</span></button><button _ngcontent-ng-c10465679 class="btn groupe" jsaction="click:;"><span _ngcontent-ng-c10465679>Jouer en groupe</span></button></div></div><!----></div></app-home><!----></app-root>
 <script src="main-VYM3RXXU.js" type="module"></script>
 
-<script id="ng-state" type="application/json">{"__nghData__":[{"t":{"16":"t0"},"c":{"16":[]}},{"c":{"0":[{"i":"c10465679","r":1}]}}]}</script></body></html>
+<script id="ng-state" type="application/json">{"__nghData__":[{"t":{"16":"t0"},"c":{"16":[]}},{"c":{"0":[{"i":"c10465679","r":1}]}}]}</script></body></html>`;
