@@ -1,6 +1,3 @@
 {
-  "routes": {
-    "/rouge_minuit": {},
-    "/rouge_minuit/game": {}
-  }
+  "routes": {}
 }
