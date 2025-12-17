@@ -1,0 +1,44 @@
+<div class="duo-container">
+  <div class="overlay"></div>
+
+  <div class="card">
+    <h2>Mode Duo 💞</h2>
+    <p class="subtitle">
+      Entrez vos prénoms, le jeu se charge du reste...
+    </p>
+
+    <form (ngSubmit)="commencer()" #duoForm="ngForm">
+      <div class="field">
+        <label for="joueur1">Joueur 1</label>
+        <input
+          id="joueur1"
+          name="joueur1"
+          [(ngModel)]="joueur1"
+          placeholder="Joueur n°1"
+          required />
+      </div>
+
+      <div class="field">
+        <label for="joueur2">Joueur 2</label>
+        <input
+          id="joueur2"
+          name="joueur2"
+          [(ngModel)]="joueur2"
+          placeholder="Joueur n°2"
+          required />
+      </div>
+
+      @if (erreur) {
+        <p class="error">{{ erreur }}</p>
+      }
+
+      <button type="submit" class="btn-start">
+        Lancer la partie
+      </button>
+    </form>
+
+    <button class="btn-back" routerLink="/">
+      ⬅ Retour à l'accueil
+    </button>
+  </div>
+</div>
