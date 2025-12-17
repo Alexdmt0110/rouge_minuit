@@ -16,11 +16,21 @@ export class HomeComponent {
   constructor(private router: Router) {}
 
   jouer(mode: 'duo' | 'groupe') {
-    this.fadeColor = mode;
     this.isFading = true;
 
     setTimeout(() => {
-      this.router.navigate(['/game'], { queryParams: { mode } });
-    }, 1000);
+
+      if (mode === 'duo') {
+        this.router.navigate(['/duo']);
+        return;
+      }
+
+      if (mode === 'groupe') {
+        this.router.navigate(['/groupe']);
+        return;
+      }
+
+    }, 600);
   }
+
 }

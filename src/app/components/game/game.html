@@ -1,11 +1,85 @@
-<div class="game">
-  <h2>Mode Bouillant 🔥</h2>
+<div class="game-container" [ngClass]="[niveauActuel, isTransitioningBackground ? 'transitioning' : '']">
+  <div class="overlay"></div>
 
-  <button (click)="tirerCarte()">Tirer une carte</button>
-  @if (carte) {
-    <div>
-      <p>{{ carte.texte }}</p>
-      <small>{{ carte.type | uppercase }}</small>
+  @if (phase === 'choix' || phase === 'carte') {
+    <div class="joueur-actuel" [ngClass]="niveauActuel">
+      <span>{{ joueurActuel }}</span>
+    </div>
+  }
+
+  @if (phase === 'choix') {
+    <div class="choix">
+      <h2>À toi de jouer...</h2>
+
+      <button
+        class="btn action"
+        (click)="choisirType('action')"
+        [disabled]="!peutChoisir('action')"
+        [class.disabled]="!peutChoisir('action')">
+        🔥 Action
+      </button>
+
+      <button
+        class="btn verite"
+        (click)="choisirType('verite')"
+        [disabled]="!peutChoisir('verite')"
+        [class.disabled]="!peutChoisir('verite')">
+        💋 Vérité
+      </button>
+    </div>
+  }
+
+  @if (phase === 'carte') {
+    <div class="carte-container">
+      <div class="carte">
+        <div class="niveau" [ngClass]="carteCourante?.niveau">
+          {{ carteCourante?.niveau || 'Niveau' }}
+        </div>
+
+        <p class="texte">
+          {{ carteCourante?.texte || 'Une carte viendra ici...' }}
+        </p>
+
+        <span
+          class="tag"
+          [class.action]="typeChoisi === 'action'"
+          [class.verite]="typeChoisi === 'verite'">
+          {{ typeChoisi }}
+        </span>
+      </div>
+
+      <button class="btn-next" (click)="tourSuivant()">
+        Suivant →
+      </button>
+    </div>
+  }
+
+  @if (phase === 'transition') {
+    <div class="transition-container">
+      <div class="transition-card">
+        <p class="transition-texte">{{ transitionMessage }}</p>
+
+        <button
+          type="button"
+          class="btn-next"
+          (click)="continuerApresTransition($event)"
+          [disabled]="transitionEnCours || phase !== 'transition'"
+        >
+          Continuer
+        </button>
+      </div>
+    </div>
+  }
+
+  @if (phase === 'fin') {
+    <div class="transition-container">
+      <div class="transition-card">
+        <p class="transition-texte">{{ transitionMessage }}</p>
+
+        <button class="btn-back" routerLink="/">
+          ⬅ Retour à l’accueil
+        </button>
+      </div>
     </div>
   }
 </div>
