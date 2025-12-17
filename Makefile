@@ -1,6 +1,6 @@
 ﻿APP_NAME=rouge-minuit
 DIST_DIR=dist/$(APP_NAME)
-BASE_HREF=/rouge_minuit/
+BASE_HREF=/rouge_minuit/browser
 
 .PHONY: build publish clean
 
