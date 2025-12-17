@@ -118,25 +118,10 @@ export class CardsService {
    * Retourne true si un niveau suivant existe, false sinon.
    */
   passerAuNiveauSuivant(): boolean {
-    console.log('[CardsService] passerAuNiveauSuivant() AVANT', {
-      niveauIndex: this.niveauIndex,
-      niveauxOrdre: this.niveauxOrdre,
-      niveauActuel: this.getNiveauActuel()
-    });
-
     if (this.niveauIndex < this.niveauxOrdre.length - 1) {
       this.niveauIndex++;
-
-      console.log('[CardsService] passerAuNiveauSuivant() APRES', {
-        niveauIndex: this.niveauIndex,
-        niveauActuel: this.getNiveauActuel()
-      });
-
       return true;
     }
-
-    console.log('[CardsService] passerAuNiveauSuivant() FIN (pas de suivant)');
     return false;
   }
-
 }
